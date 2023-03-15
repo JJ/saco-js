@@ -7,6 +7,6 @@ test("Checks aux functions", (t) => {
   for (let i in dummy) {
     t.equal(valOr0(dummy, i), dummy[i]);
   }
-  t.equal(valorOr0(dummy, "thisDoesNotExist"), 0);
+  t.equal(valOr0(dummy, "thisDoesNotExist"), 0);
   t.end();
 });
