@@ -4,7 +4,7 @@ import { valOr0 } from "../index.js";
 const dummy = { foo: 3, bar: 2 };
 
 test("Checks aux functions", (t) => {
-  for (let i in dummy) {
+  for (const i in dummy) {
     t.equal(valOr0(dummy, i), dummy[i]);
   }
   t.equal(valOr0(dummy, "thisDoesNotExist"), 0);
