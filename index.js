@@ -27,11 +27,8 @@ export function incrementOrInit(hash, key) {
 }
 
 export function hashify(anArray) {
-  return anArray.reduce((runningHash, el) => {
-    if (el in runningHash) {
-      runningHash[el]++;
-    } else {
-      runningHash[el] = 1;
-    }
-  });
+  return anArray.reduce(
+    (runningHash, el) => incrementOrInit(runningHash, el),
+    {}
+  );
 }

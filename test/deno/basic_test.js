@@ -15,4 +15,6 @@ Deno.test(function valOr0Test() {
 Deno.test(function incrementOrInitTest() {
   incrementOrInit(dummy, "foo");
   assertEquals(dummy["foo"], FOO + 1);
+  incrementOrInit(dummy, "baz");
+  assertEquals(dummy["baz"], 1);
 });
