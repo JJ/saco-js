@@ -49,8 +49,8 @@ export function hashify(anArray) {
  */
 export function sacoUnion(unSaco, otroSaco) {
   const keys = new Set([...Object.keys(unSaco), ...Object.keys(otroSaco)]);
-  let resultsSet = {};
-  for (let i of keys) {
+  const resultsSet = {};
+  for (const i of keys) {
     resultsSet[i] = valOr0(unSaco, i) + valOr0(otroSaco, i);
   }
   return resultsSet;
@@ -64,8 +64,8 @@ export function sacoUnion(unSaco, otroSaco) {
  * @returns {Object} merged "saco"
  */
 export function sacoIntersection(unSaco, otroSaco) {
-  let resultsSet = {};
-  for (let i in unSaco) {
+  const resultsSet = {};
+  for (const i in unSaco) {
     if (i in otroSaco) {
       const difference = unSaco[i] - otroSaco[i];
       if (difference > 0) {
