@@ -17,18 +17,27 @@ export function valOr0(hash, key) {
  * Initializes a hash value for a key if it does not exist, increments if it does
  * @param {*} hash - hash to be mutated
  * @param {*} key  - key whose value is going to be set or changed
+ * @returns the new version of the hash
  */
 export function incrementOrInit(hash, key) {
+  console.log(hash, key);
   if (key in hash) {
     hash[key]++;
   } else {
     hash[key] = 1;
   }
+  return hash;
 }
 
+/**
+ *
+ * @param {*} anArray a hash composed preferably of strings.
+ * @returns a `saco` or bag that counts the number of repeated elements
+ */
 export function hashify(anArray) {
+  const initialHash = {};
   return anArray.reduce(
     (runningHash, el) => incrementOrInit(runningHash, el),
-    {}
+    initialHash
   );
 }
