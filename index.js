@@ -1,5 +1,5 @@
 /**
- * Functions that work with hashes/objects/dicionaries using them as "bags", sets that can have repeated elements.
+ * Functions that work with hashes/objects/dicionaries using them as "bags", sets that can have repeated elements. Also, assorted utility functions for the same task
  */
 
 /**
@@ -31,7 +31,7 @@ export function incrementOrInit(hash, key) {
 /**
  *
  * @param {*} anArray a hash composed preferably of strings.
- * @returns a `saco` or bag that counts the number of repeated elements
+ * @returns a "saco" or bag that counts the number of repeated elements
  */
 export function hashify(anArray) {
   const initialHash = {};

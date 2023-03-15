@@ -13,3 +13,5 @@ npm i
 # and then
 npm run doc
 ```
+
+This will generate documentation in the `doc` directory.
