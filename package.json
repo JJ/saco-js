@@ -1,0 +1,16 @@
+{
+  "name": "saco",
+  "version": "0.0.1",
+  "description": "A bag data structure for Node/JS/deno",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap"
+  },
+  "keywords": [
+    "bag",
+    "hash",
+    "set"
+  ],
+  "author": "JJ Merelo",
+  "license": "GPL-3.0"
+}
