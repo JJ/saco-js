@@ -1,6 +1,6 @@
 {
   "tasks": {
     "test": "deno test test/deno/*.js",
-    "lint": "deno lint index.js test/deno/*.js"
+    "lint": "deno lint index.js test/deno/"
   }
 }
