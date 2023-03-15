@@ -1,4 +1,4 @@
-name: lint and test deno
+name: lint and test with deno
 on:
   push:
     paths:
@@ -11,7 +11,7 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - name: Versión de trabajo de deno
+      - name: Working version
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.30
