@@ -1,4 +1,8 @@
 /**
+ * Functions that work with hashes/objects/dicionaries using them as "bags", sets that can have repeated elements.
+ */
+
+/**
  * Value or 0, returns the value corresponding to a key if it exists, 0 if it does not.
  *
  * @param {Object} hash - a hash, associative array or Object
