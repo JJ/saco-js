@@ -13,7 +13,8 @@ Deno.test(function valOr0Test() {
 });
 
 Deno.test(function incrementOrInitTest() {
-  incrementOrInit(dummy, "foo");
+  const returned = incrementOrInit(dummy, "foo");
+  assertEquals(returned, dummy);
   assertEquals(dummy["foo"], FOO + 1);
   incrementOrInit(dummy, "baz");
   assertEquals(dummy["baz"], 1);
@@ -21,7 +22,6 @@ Deno.test(function incrementOrInitTest() {
 
 Deno.test(function hashifyTest() {
   const anArray = [..."aaa".split(""), ..."bbb".split("")];
-  console.log(anArray);
   const aHash = hashify(anArray);
   assertEquals(aHash, { a: 3, b: 3 });
 });

@@ -20,7 +20,6 @@ export function valOr0(hash, key) {
  * @returns the new version of the hash
  */
 export function incrementOrInit(hash, key) {
-  console.log(hash, key);
   if (key in hash) {
     hash[key]++;
   } else {
