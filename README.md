@@ -15,3 +15,15 @@ npm run doc
 ```
 
 This will generate documentation in the `doc` directory.
+
+## Example
+
+```js
+import { sacoUnion, sacoIntersection } from "../index.js"; // Use published URL instead
+
+const unSaco = { a: 3, b: 1 };
+const otroSaco = { a: 1, b: 3 };
+
+console.log(sacoUnion(unSaco, otroSaco)); // { a: 4, b: 4 }
+console.log(sacoIntersection(unSaco, otroSaco)); // { a: 1, b:1 }
+```
