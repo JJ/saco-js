@@ -3,7 +3,7 @@ import { assertEquals } from "https://deno.land/std@0.174.0/testing/asserts.ts";
 import { valOr0, incrementOrInit, hashify } from "../../index.js";
 
 const FOO = 3;
-let dummy = { foo: FOO, bar: 2 };
+const dummy = { foo: FOO, bar: 2 };
 
 Deno.test(function valOr0Test() {
   for (const i in dummy) {
