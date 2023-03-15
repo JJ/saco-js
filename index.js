@@ -55,3 +55,23 @@ export function sacoUnion(unSaco, otroSaco) {
   }
   return resultsSet;
 }
+
+/**
+ * Intersection of "sacos", retuns an array that uses keys common to both sacos, substracting their value.
+ * If the difference is 0 or less, the key is eliminated.
+ * @param {*} unSaco   - first saco
+ * @param {*} otroSaco - second saco
+ * @returns {Object} merged "saco"
+ */
+export function sacoIntersection(unSaco, otroSaco) {
+  let resultsSet = {};
+  for (let i in unSaco) {
+    if (i in otroSaco) {
+      const difference = unSaco[i] - otroSaco[i];
+      if (difference > 0) {
+        resultsSet[i] = difference;
+      }
+    }
+  }
+  return resultsSet;
+}
