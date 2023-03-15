@@ -27,3 +27,11 @@ const otroSaco = { a: 1, b: 3 };
 console.log(sacoUnion(unSaco, otroSaco)); // { a: 4, b: 4 }
 console.log(sacoIntersection(unSaco, otroSaco)); // { a: 1, b:1 }
 ```
+
+Or run
+
+```shell
+deno run examples/basic.js
+```
+
+from this directory
