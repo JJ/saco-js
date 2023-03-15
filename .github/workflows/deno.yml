@@ -1,0 +1,23 @@
+name: lint and test deno
+on:
+  push:
+    path:
+      - "**/*.js"
+      - "deno.*"
+  pull_request:
+    path:
+      - "**/*.js"
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Versión de trabajo de deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.30
+      - name: Fuentes
+        uses: actions/checkout@v3
+      - name: Lint
+        run: deno lint
+      - name: test
+        run: deno task test
