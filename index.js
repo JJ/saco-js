@@ -40,3 +40,18 @@ export function hashify(anArray) {
     initialHash
   );
 }
+
+/**
+ * Union of "sacos", retuns an array that uses keys from both sacos and adds their values
+ * @param {*} unSaco   - first saco
+ * @param {*} otroSaco - second saco
+ * @returns {Object} merged "saco"
+ */
+export function sacoUnion(unSaco, otroSaco) {
+  const keys = new Set([...Object.keys(unSaco), ...Object.keys(otroSaco)]);
+  let resultsSet = {};
+  for (let i of keys) {
+    resultsSet[i] = valOr0(unSaco, i) + valOr0(otroSaco, i);
+  }
+  return resultsSet;
+}
