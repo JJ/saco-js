@@ -41,6 +41,9 @@ Deno.test(function sacoUnionTest() {
 });
 
 Deno.test(function sacoInterseccionTest() {
-  assertEquals(sacoIntersection(mergedSaco, anotherSaco), { b: 3 });
-  assertEquals(sacoIntersection(mergedSaco, aSaco), { b: 3 });
+  assertEquals(sacoIntersection(mergedSaco, anotherSaco), { b: 3, c: 3 });
+  assertEquals(sacoIntersection(mergedSaco, aSaco), { a: 3, b: 3 });
+  const unSaco = { a: 3, b: 1 };
+  const otroSaco = { a: 1, b: 3 };
+  assertEquals(sacoIntersection(unSaco, otroSaco), { a: 1, b: 1 });
 });
