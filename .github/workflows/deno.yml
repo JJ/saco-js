@@ -1,11 +1,11 @@
 name: lint and test deno
 on:
   push:
-    path:
+    paths:
       - "**/*.js"
       - "deno.*"
   pull_request:
-    path:
+    paths:
       - "**/*.js"
 jobs:
   linting:
