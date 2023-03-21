@@ -22,3 +22,16 @@ describe("ValOr0", () => {
     equal(valOr0(dummy, "thisDoesNotExist"), 0);
   });
 });
+
+describe("incrementOrInitTest", () => {
+  it("should exist and have a value", () => {
+    const returned = incrementOrInit(dummy, "foo");
+
+    assertEquals(returned, dummy);
+    assertEquals(dummy["foo"], FOO + 1);
+  });
+  it("should have incremented its value", () => {
+    incrementOrInit(dummy, "baz");
+    assertEquals(dummy["baz"], 1);
+  });
+});
