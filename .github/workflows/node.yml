@@ -11,7 +11,7 @@ jobs:
   linting:
     strategy:
       matrix:
-        version: [16, 18, latest]
+        version: [18, latest]
     runs-on: ubuntu-latest
     steps:
       - name: Working version
