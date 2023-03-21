@@ -1,0 +1,24 @@
+name: lint and test with deno
+on:
+  push:
+    paths:
+      - "**/*.js"
+      - "package.*"
+  pull_request:
+    paths:
+      - "**/*.js"
+jobs:
+  linting:
+    strategy:
+      matrix:
+        version: [16, 18, latest]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Working version
+        uses: action/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+      - name: Fuentes
+        uses: actions/checkout@v3
+      - name: test
+        run: npm test
