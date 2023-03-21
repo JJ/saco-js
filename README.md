@@ -34,4 +34,16 @@ Or run
 deno run examples/basic.js
 ```
 
-from this directory
+or, with `bun`
+
+```shell
+bun run examples/basic.js
+```
+
+or obviously with node:
+
+```shell
+node examples/basic.js
+```
+
+from this directory.
