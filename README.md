@@ -1,4 +1,4 @@
-# saco-js [![lint and test deno](https://github.com/JJ/saco-js/actions/workflows/deno.yml/badge.svg)](https://github.com/JJ/saco-js/actions/workflows/deno.yml) [![Deploy static content to Pages](https://github.com/JJ/saco-js/actions/workflows/static.yml/badge.svg)](https://github.com/JJ/saco-js/actions/workflows/static.yml)
+# saco-js [![lint and test deno](https://github.com/JJ/saco-js/actions/workflows/deno.yml/badge.svg)](https://github.com/JJ/saco-js/actions/workflows/deno.yml) [![Deploy static content to Pages](https://github.com/JJ/saco-js/actions/workflows/static.yml/badge.svg)](https://github.com/JJ/saco-js/actions/workflows/static.yml) [![lint and test with node](https://github.com/JJ/saco-js/actions/workflows/node.yml/badge.svg)](https://github.com/JJ/saco-js/actions/workflows/node.yml)
 
 A bag-like data structure in JavaScript created to be compatible with node as well as deno
 
