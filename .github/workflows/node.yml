@@ -1,4 +1,4 @@
-name: lint and test with deno
+name: lint and test with node
 on:
   push:
     paths:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Working version
-        uses: action/setup-node@v3
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.version }}
       - name: Fuentes
