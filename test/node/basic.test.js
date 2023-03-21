@@ -35,3 +35,9 @@ describe("incrementOrInitTest", () => {
     equal(dummy["baz"], 1);
   });
 });
+
+const anArray = [..."aaa".split(""), ..."bbb".split("")];
+const aSaco = hashify(anArray);
+test("hashifyTest", (_) => {
+  equal(aSaco, { a: 3, b: 3 });
+});
