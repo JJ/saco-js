@@ -1,5 +1,5 @@
-import { equal } from "node:assert";
-import { describe, it } from "node:test";
+import { equal, deepEqual } from "node:assert";
+import { test, describe, it } from "node:test";
 
 import {
   valOr0,
@@ -39,5 +39,13 @@ describe("incrementOrInitTest", () => {
 const anArray = [..."aaa".split(""), ..."bbb".split("")];
 const aSaco = hashify(anArray);
 test("hashifyTest", (_) => {
-  equal(aSaco, { a: 3, b: 3 });
+  deepEqual(aSaco, { a: 3, b: 3 });
+});
+
+const anotherArray = [..."ccc".split(""), ..."bbb".split("")];
+const anotherSaco = hashify(anotherArray);
+const mergedSaco = sacoUnion(aSaco, anotherSaco);
+
+test("sacoUnionTest", (_) => {
+  deepEqual(mergedSaco, { a: 3, b: 6, c: 3 });
 });
