@@ -49,3 +49,15 @@ const mergedSaco = sacoUnion(aSaco, anotherSaco);
 test("sacoUnionTest", (_) => {
   deepEqual(mergedSaco, { a: 3, b: 6, c: 3 });
 });
+
+describe("sacoInterseccionTest", () => {
+  it("should witk with simple intersection", () => {
+    deepEqual(sacoIntersection(mergedSaco, anotherSaco), { b: 3, c: 3 });
+    deepEqual(sacoIntersection(mergedSaco, aSaco), { a: 3, b: 3 });
+  });
+  it("should witk with common elements intersection", () => {
+    const unSaco = { a: 3, b: 1 };
+    const otroSaco = { a: 1, b: 3 };
+    deepEqual(sacoIntersection(unSaco, otroSaco), { a: 1, b: 1 });
+  });
+});
