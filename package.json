@@ -1,7 +1,7 @@
 {
-  "name": "saco",
+  "name": "saco-js",
   "version": "0.0.2",
-  "description": "A bag data structure for Node/JS/deno",
+  "description": "A bag (saco) data structure for Node/JS/deno",
   "main": "index.js",
   "scripts": {
     "test": "node --test test/node/*.js",
