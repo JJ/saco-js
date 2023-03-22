@@ -7,7 +7,7 @@ on:
     paths:
       - "**/*.js"
 jobs:
-  testingWithDeno:
+  testingWithBun:
     runs-on: ubuntu-latest
     steps:
       - name: Working version
