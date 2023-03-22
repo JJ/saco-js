@@ -1,0 +1,20 @@
+name: lint and test with bun
+on:
+  push:
+    paths:
+      - "**/*.js"
+  pull_request:
+    paths:
+      - "**/*.js"
+jobs:
+  testingWithDeno:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Working version
+        uses: ntongolub/action-setup-bun@v1
+        with:
+          bun-version: 0.1.2
+      - name: Fuentes
+        uses: actions/checkout@v3
+      - name: test
+        run: bun test test/bun
