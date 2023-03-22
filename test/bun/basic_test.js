@@ -8,7 +8,7 @@ import {
   sacoIntersection,
 } from "../../index.js";
 
-const FOO = 3;
+const FOO = 4;
 const dummy = { foo: FOO, bar: 2 };
 
 test("valOr0", () => {

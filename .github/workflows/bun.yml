@@ -13,7 +13,7 @@ jobs:
       - name: Working version
         uses: antongolub/action-setup-bun@v1
         with:
-          bun-version: 0.1.2
+          bun-version: 0.5.8
       - name: Fuentes
         uses: actions/checkout@v3
       - name: test
