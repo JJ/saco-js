@@ -81,9 +81,9 @@ export function sacoIntersection(unSaco, otroSaco) {
  * @returns { Array } - an Array with the elements of the Set or keys in a bag - associative array
  */
 export function elements(hashOrSet) {
-  if (hashOrSet.prototype.constructor === "Array") {
-    return Object.keys(hashOrSet);
-  } else if (hashOrSet.prototype.constructor === "Set") {
+  if (hashOrSet instanceof Set) {
     return hashOrSet.keys();
+  } else {
+    return Object.keys(hashOrSet);
   }
 }

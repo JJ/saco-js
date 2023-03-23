@@ -7,6 +7,7 @@ import {
   hashify,
   sacoUnion,
   sacoIntersection,
+  elements,
 } from "../../index.js";
 
 const FOO = 3;
@@ -33,6 +34,15 @@ describe("incrementOrInitTest", () => {
   it("should have incremented its value", () => {
     incrementOrInit(dummy, "baz");
     equal(dummy["baz"], 1);
+  });
+});
+
+describe("elements", () => {
+  it("should return elements correctly", () => {
+    deepEqual(elements(dummy), Object.keys(dummy));
+    const aSet = new Set(elements(dummy));
+    console.log(aSet.constructor);
+    deepEqual(new Set(elements(aSet)), new Set(Object.keys(dummy)));
   });
 });
 
