@@ -5,7 +5,7 @@ import { sacoUnion, hashify, sacoIntersection } from "../../index.js";
 
 const anArray = [..."aaa".split(""), ..."bbb".split("")];
 const aSaco = hashify(anArray);
-const aSet = new Set(["a", "c"]);
+const aSet = hashify(new Set(["a", "c"]));
 const mergedSaco = sacoUnion(aSaco, aSet);
 
 test("sacoUnionTest", (_) => {
