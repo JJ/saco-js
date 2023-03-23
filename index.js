@@ -5,12 +5,16 @@
 /**
  * Value or 0, returns the value corresponding to a key if it exists, 0 if it does not.
  *
- * @param {Object} hash - a hash, associative array or Object
+ * @param {Object} hashOrSet - a hash, associative array or Object
  * @param {String} key  - A string representing a key, present or not in the hash
  * @returns value corresponding to the `key`or 0 if it does not exist
  */
-export function valOr0(hash, key) {
-  return key in hash ? hash[key] : 0;
+export function valOr0(hashOrSet, key) {
+  if (hashOrSet instanceof Set) {
+    return hashOrSet.has(key) ? 1 : 0;
+  } else {
+    return key in hashOrSet ? hashOrSet[key] : 0;
+  }
 }
 
 /**
