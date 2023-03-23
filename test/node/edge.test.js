@@ -11,3 +11,7 @@ const mergedSaco = sacoUnion(aSaco, aSet);
 test("sacoUnionTest", (_) => {
   deepEqual(mergedSaco, { a: 4, b: 3, c: 1 });
 });
+
+test("sacoUnionTest", (_) => {
+  deepEqual(sacoIntersection(aSaco, aSet), { a: 1 });
+});
