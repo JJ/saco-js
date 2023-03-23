@@ -19,3 +19,7 @@ test("sacoIntersectionTest", (_) => {
 test("Result empty set", (_) => {
   deepEqual(sacoIntersection({ a: 3 }, { b: 3 }), {});
 });
+
+test("Result non-integer numbers", (_) => {
+  deepEqual(sacoIntersection({ a: 3.2 }, { a: 2.7 }), { a: 2.7 });
+});
