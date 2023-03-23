@@ -12,6 +12,10 @@ test("sacoUnionTest", (_) => {
   deepEqual(mergedSaco, { a: 4, b: 3, c: 1 });
 });
 
-test("sacoUnionTest", (_) => {
+test("sacoIntersectionTest", (_) => {
   deepEqual(sacoIntersection(aSaco, aSet), { a: 1 });
+});
+
+test("Result empty set", (_) => {
+  deepEqual(sacoIntersection({ a: 3 }, { b: 3 }), {});
 });
