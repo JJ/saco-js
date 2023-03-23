@@ -1,5 +1,11 @@
 /**
- * Functions that work with hashes/objects/dicionaries using them as "bags", sets that can have repeated elements. Also, assorted utility functions for the same task
+ * Functions that work with hashes/objects/dicionaries using them as "bags", sets that can have repeated elements. Also, assorted utility functions for the same task.
+ *
+ * In general a "bag" will be a hash or associative array with numeric values. Makes more sense with positive integer values, but all operations will work if values are just numbers.
+ *
+ * These are sensitive numeric operations, so we prefer to leave all checks on the client side. That means that if you make any operation with a saco with negative coefficients, it will work. What you do with it is up to you.
+ *
+ * Operations with other non-Object values will either fail or behave as if it was an empty "saco". Again, caveat emptor.
  */
 
 /**
