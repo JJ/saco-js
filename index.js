@@ -59,7 +59,7 @@ export function sacoUnion(unSaco, otroSaco) {
 }
 
 /**
- * Intersection of "sacos", retuns an array that uses keys common to both sacos, with the minimum value.
+ * Intersection of "sacos", retuns an array that uses keys common to both sacos, with the minimum value. Non-compatible objects will work as emmpty sacos; simple arrays will act as sets with as many numeric different elements as elements in the array; thus, [1,2] will have a "0" element that appears 1 and an "1" element that appears 2 times.
  * @param {*} unSaco   - first saco
  * @param {*} otroSaco - second saco
  * @returns {Object} merged "saco"
