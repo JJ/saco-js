@@ -5,16 +5,12 @@
 /**
  * Value or 0, returns the value corresponding to a key if it exists, 0 if it does not.
  *
- * @param {Object} hashOrSet - a hash, associative array or Object
+ * @param {Object} hash - a hash, associative array or Object
  * @param {String} key  - A string representing a key, present or not in the hash
  * @returns value corresponding to the `key`or 0 if it does not exist
  */
-export function valOr0(hashOrSet, key) {
-  if (hashOrSet instanceof Set) {
-    return hashOrSet.has(key) ? 1 : 0;
-  } else {
-    return key in hashOrSet ? hashOrSet[key] : 0;
-  }
+export function valOr0(hash, key) {
+  return key in hash ? hash[key] : 0;
 }
 
 /**
@@ -34,12 +30,12 @@ export function incrementOrInit(hash, key) {
 
 /**
  *
- * @param {*} anArray a hash composed preferably of strings.
+ * @param {*} hashOrSet a hash composed preferably of strings.
  * @returns a "saco" or bag that counts the number of repeated elements
  */
-export function hashify(anArray) {
+export function hashify(hashOrSet) {
   const initialHash = {};
-  return anArray.reduce(
+  return hashOrSet.reduce(
     (runningHash, el) => incrementOrInit(runningHash, el),
     initialHash
   );
@@ -52,7 +48,7 @@ export function hashify(anArray) {
  * @returns {Object} merged "saco"
  */
 export function sacoUnion(unSaco, otroSaco) {
-  const keys = new Set([...elements(unSaco), ...elements(otroSaco)]);
+  const keys = new Set([...Object.keys(unSaco), ...Object.keys(otroSaco)]);
   const resultsSet = {};
   for (const i of keys) {
     resultsSet[i] = valOr0(unSaco, i) + valOr0(otroSaco, i);
@@ -77,17 +73,4 @@ export function sacoIntersection(unSaco, otroSaco) {
     }
   }
   return resultsSet;
-}
-
-/**
- * Extracts the elements of the bag using different methods depending on the type
- * @param {*} hashOrSet either an associative array or a set
- * @returns { Array } - an Array with the elements of the Set or keys in a bag - associative array
- */
-export function elements(hashOrSet) {
-  if (hashOrSet instanceof Set) {
-    return hashOrSet.keys();
-  } else {
-    return Object.keys(hashOrSet);
-  }
 }
