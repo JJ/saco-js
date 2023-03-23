@@ -48,7 +48,7 @@ export function hashify(anArray) {
  * @returns {Object} merged "saco"
  */
 export function sacoUnion(unSaco, otroSaco) {
-  const keys = new Set([...Object.keys(unSaco), ...Object.keys(otroSaco)]);
+  const keys = new Set([...elements(unSaco), ...elements(otroSaco)]);
   const resultsSet = {};
   for (const i of keys) {
     resultsSet[i] = valOr0(unSaco, i) + valOr0(otroSaco, i);
@@ -73,4 +73,17 @@ export function sacoIntersection(unSaco, otroSaco) {
     }
   }
   return resultsSet;
+}
+
+/**
+ * Extracts the elements of the bag using different methods depending on the type
+ * @param {*} hashOrSet either an associative array or a set
+ * @returns { Array } - an Array with the elements of the Set or keys in a bag - associative array
+ */
+export function elements(hashOrSet) {
+  if (hashOrSet.prototype.constructor === "Array") {
+    return Object.keys(hashOrSet);
+  } else if (hashOrSet.prototype.constructor === "Set") {
+    return hashOrSet.keys();
+  }
 }
