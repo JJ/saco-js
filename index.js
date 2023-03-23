@@ -30,12 +30,14 @@ export function incrementOrInit(hash, key) {
 
 /**
  *
- * @param {*} hashOrSet a hash composed preferably of strings.
+ * @param {*} arrayOrSet an  composed preferably of strings or a Set.
  * @returns a "saco" or bag that counts the number of repeated elements
  */
-export function hashify(hashOrSet) {
+export function hashify(arrayOrSet) {
   const initialHash = {};
-  return hashOrSet.reduce(
+  const pureArray =
+    arrayOrSet instanceof Set ? Array.from(arrayOrSet) : arrayOrSet;
+  return pureArray.reduce(
     (runningHash, el) => incrementOrInit(runningHash, el),
     initialHash
   );

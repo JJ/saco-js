@@ -40,6 +40,7 @@ const anArray = [..."aaa".split(""), ..."bbb".split("")];
 const aSaco = hashify(anArray);
 test("hashifyTest", (_) => {
   deepEqual(aSaco, { a: 3, b: 3 });
+  deepEqual(hashify(new Set(["a", "b"])), { a: 1, b: 1 });
 });
 
 const anotherArray = [..."ccc".split(""), ..."bbb".split("")];
