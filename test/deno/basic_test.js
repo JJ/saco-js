@@ -6,6 +6,8 @@ import {
   hashify,
   sacoUnion,
   sacoIntersection,
+  sacoDifference,
+  sacoSymmetricDifference,
 } from "../../index.js";
 
 const FOO = 3;
@@ -46,4 +48,21 @@ Deno.test(function sacoInterseccionTest() {
   const unSaco = { a: 3, b: 1 };
   const otroSaco = { a: 1, b: 3 };
   assertEquals(sacoIntersection(unSaco, otroSaco), { a: 1, b: 1 });
+});
+
+Deno.test(function sacoDifferenceTest() {
+  const unSaco = { a: 3, b: 1 };
+  const otroSaco = { a: 1, b: 3 };
+  assertEquals(sacoDifference(unSaco, otroSaco), { a: 2 });
+  assertEquals(sacoDifference(otroSaco, unSaco), { b: 2 });
+  assertEquals(sacoDifference(mergedSaco, aSaco), { b: 3, c: 3 });
+  assertEquals(sacoDifference(mergedSaco, anotherSaco), { a: 3, b: 3 });
+});
+
+Deno.test(function sacoSymmetricDifferenceTest() {
+  const unSaco = { a: 3, b: 1 };
+  const otroSaco = { a: 1, b: 3 };
+  assertEquals(sacoSymmetricDifference(unSaco, otroSaco), { a: 2, b: 2 });
+  assertEquals(sacoSymmetricDifference(mergedSaco, aSaco), { b: 3, c: 3 });
+  assertEquals(sacoSymmetricDifference(aSaco, anotherSaco), { a: 3, c: 3 });
 });
