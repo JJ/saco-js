@@ -6,6 +6,8 @@ import {
   hashify,
   sacoUnion,
   sacoIntersection,
+  sacoDifference,
+  sacoSymmetricDifference,
 } from "../../index.js";
 
 const FOO = 4;
@@ -46,4 +48,21 @@ test("sacoInterseccion", () => {
   const unSaco = { a: 3, b: 1 };
   const otroSaco = { a: 1, b: 3 };
   expect(sacoIntersection(unSaco, otroSaco)).toEqual({ a: 1, b: 1 });
+});
+
+test("sacoDifference", () => {
+  const unSaco = { a: 3, b: 1 };
+  const otroSaco = { a: 1, b: 3 };
+  expect(sacoDifference(unSaco, otroSaco)).toEqual({ a: 2 });
+  expect(sacoDifference(otroSaco, unSaco)).toEqual({ b: 2 });
+  expect(sacoDifference(mergedSaco, aSaco)).toEqual({ b: 3, c: 3 });
+  expect(sacoDifference(mergedSaco, anotherSaco)).toEqual({ a: 3, b: 3 });
+});
+
+test("sacoSymmetricDifference", () => {
+  const unSaco = { a: 3, b: 1 };
+  const otroSaco = { a: 1, b: 3 };
+  expect(sacoSymmetricDifference(unSaco, otroSaco)).toEqual({ a: 2, b: 2 });
+  expect(sacoSymmetricDifference(mergedSaco, aSaco)).toEqual({ b: 3, c: 3 });
+  expect(sacoSymmetricDifference(aSaco, anotherSaco)).toEqual({ a: 3, c: 3 });
 });

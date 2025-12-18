@@ -7,6 +7,8 @@ import {
   hashify,
   sacoUnion,
   sacoIntersection,
+  sacoDifference,
+  sacoSymmetricDifference,
 } from "../../index.js";
 
 const FOO = 3;
@@ -60,5 +62,50 @@ describe("sacoInterseccionTest", () => {
     const unSaco = { a: 3, b: 1 };
     const otroSaco = { a: 1, b: 3 };
     deepEqual(sacoIntersection(unSaco, otroSaco), { a: 1, b: 1 });
+  });
+});
+
+describe("sacoDifferenceTest", () => {
+  it("should return elements in first but not in second", () => {
+    const unSaco = { a: 3, b: 1 };
+    const otroSaco = { a: 1, b: 3 };
+    deepEqual(sacoDifference(unSaco, otroSaco), { a: 2 });
+    deepEqual(sacoDifference(otroSaco, unSaco), { b: 2 });
+  });
+  it("should return all elements when no overlap", () => {
+    const unSaco = { a: 3, b: 1 };
+    const otroSaco = { c: 2, d: 4 };
+    deepEqual(sacoDifference(unSaco, otroSaco), { a: 3, b: 1 });
+  });
+  it("should return empty when first is subset of second", () => {
+    const unSaco = { a: 1, b: 1 };
+    const otroSaco = { a: 3, b: 3 };
+    deepEqual(sacoDifference(unSaco, otroSaco), {});
+  });
+  it("should work with complex bags", () => {
+    deepEqual(sacoDifference(mergedSaco, aSaco), { b: 3, c: 3 });
+    deepEqual(sacoDifference(mergedSaco, anotherSaco), { a: 3, b: 3 });
+  });
+});
+
+describe("sacoSymmetricDifferenceTest", () => {
+  it("should return symmetric difference", () => {
+    const unSaco = { a: 3, b: 1 };
+    const otroSaco = { a: 1, b: 3 };
+    deepEqual(sacoSymmetricDifference(unSaco, otroSaco), { a: 2, b: 2 });
+  });
+  it("should return union when no overlap", () => {
+    const unSaco = { a: 3, b: 1 };
+    const otroSaco = { c: 2, d: 4 };
+    deepEqual(sacoSymmetricDifference(unSaco, otroSaco), { a: 3, b: 1, c: 2, d: 4 });
+  });
+  it("should return empty when sacos are identical", () => {
+    const unSaco = { a: 3, b: 1 };
+    const otroSaco = { a: 3, b: 1 };
+    deepEqual(sacoSymmetricDifference(unSaco, otroSaco), {});
+  });
+  it("should work with complex bags", () => {
+    deepEqual(sacoSymmetricDifference(mergedSaco, aSaco), { b: 3, c: 3 });
+    deepEqual(sacoSymmetricDifference(aSaco, anotherSaco), { a: 3, c: 3 });
   });
 });

@@ -82,3 +82,40 @@ export function sacoIntersection(unSaco, otroSaco) {
   }
   return resultsSet;
 }
+
+/**
+ * Non-symmetric difference of "sacos", returns elements that are in the first saco but not in the second (A - B)
+ * @param {*} unSaco   - first saco
+ * @param {*} otroSaco - second saco
+ * @returns {Object} difference "saco"
+ */
+export function sacoDifference(unSaco, otroSaco) {
+  const resultsSet = {};
+  for (const i in unSaco) {
+    const diff = unSaco[i] - valOr0(otroSaco, i);
+    if (diff > 0) {
+      resultsSet[i] = diff;
+    }
+  }
+  return resultsSet;
+}
+
+/**
+ * Symmetric difference of "sacos", returns the union except the intersection ((A ∪ B) - (A ∩ B))
+ * @param {*} unSaco   - first saco
+ * @param {*} otroSaco - second saco
+ * @returns {Object} symmetric difference "saco"
+ */
+export function sacoSymmetricDifference(unSaco, otroSaco) {
+  const keys = new Set([...Object.keys(unSaco), ...Object.keys(otroSaco)]);
+  const resultsSet = {};
+  for (const i of keys) {
+    const val1 = valOr0(unSaco, i);
+    const val2 = valOr0(otroSaco, i);
+    const diff = Math.abs(val1 - val2);
+    if (diff > 0) {
+      resultsSet[i] = diff;
+    }
+  }
+  return resultsSet;
+}
